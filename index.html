@@ -42,22 +42,6 @@
       <span class="nav-brand-text"><b>IHH</b><small>ILO</small></span>
     </a>
 
-    <div class="nav-panel" id="nav-panel">
-      <div class="nav-links" role="navigation">
-        <a class="nav-link" href="#idea"><span class="nav-ico" aria-hidden="true">💡</span><span data-i18n="nav.idea">الفكرة</span></a>
-        <a class="nav-link" href="#submit"><span class="nav-ico" aria-hidden="true">📤</span><span data-i18n="nav.submit">التسليم</span></a>
-        <a class="nav-link" href="#eval"><span class="nav-ico" aria-hidden="true">📊</span><span data-i18n="nav.eval">التقييم</span></a>
-        <a class="nav-link" href="#targets"><span class="nav-ico" aria-hidden="true">🎯</span><span data-i18n="nav.targets">الأهداف</span></a>
-        <a class="nav-link" href="#agenda"><span class="nav-ico" aria-hidden="true">📅</span><span data-i18n="nav.agenda">الدورة</span></a>
-        <a class="nav-link" href="#benefit"><span class="nav-ico" aria-hidden="true">👤</span><span data-i18n="nav.benefit">المستفيد</span></a>
-        <a class="nav-link" href="#employers"><span class="nav-ico" aria-hidden="true">🏢</span><span data-i18n="nav.employers">أصحاب العمل</span></a>
-        <a class="nav-link" href="#payments"><span class="nav-ico" aria-hidden="true">💳</span><span data-i18n="nav.payments">الدفعات</span></a>
-        <a class="nav-link" href="#budget"><span class="nav-ico" aria-hidden="true">💰</span><span data-i18n="nav.budget">القيمة</span></a>
-        <a class="nav-link" href="#why"><span class="nav-ico" aria-hidden="true">⭐</span><span data-i18n="nav.why">لماذا نحن</span></a>
-        <a class="nav-link" href="#plan"><span class="nav-ico" aria-hidden="true">✅</span><span data-i18n="nav.plan">الخطة</span></a>
-      </div>
-    </div>
-
     <div class="nav-tools">
       <div class="lang-switch" data-lang-switch role="group" aria-label="اختيار اللغة">
         <button type="button" class="lang-btn active" data-lang="ar" aria-pressed="true" title="العربية">
@@ -74,9 +58,29 @@
         </button>
       </div>
 
-      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-panel" data-i18n-aria="nav.menu" aria-label="القائمة">
-        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-panel" data-i18n-aria="nav.sections" aria-label="الأقسام">
+        <svg class="nav-toggle-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <span class="nav-toggle-label" data-i18n="nav.sections">الأقسام</span>
       </button>
+    </div>
+
+    <div class="nav-panel" id="nav-panel">
+      <div class="nav-panel-head">
+        <span data-i18n="nav.sections">الأقسام</span>
+      </div>
+      <div class="nav-links" role="navigation">
+        <a class="nav-link" href="#idea"><span class="nav-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M8.5 14.5A5.5 5.5 0 1 1 15.5 8 4.5 4.5 0 0 0 12 4a5.5 5.5 0 0 0-3.5 10.5V14.5z"/></svg></span><span data-i18n="nav.idea">الفكرة</span></a>
+        <a class="nav-link" href="#submit"><span class="nav-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></span><span data-i18n="nav.submit">التسليم</span></a>
+        <a class="nav-link" href="#eval"><span class="nav-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20V8"/></svg></span><span data-i18n="nav.eval">التقييم</span></a>
+        <a class="nav-link" href="#targets"><span class="nav-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><path d="M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/><path d="M12 11v2h2"/></svg></span><span data-i18n="nav.targets">الأهداف</span></a>
+        <a class="nav-link" href="#agenda"><span class="nav-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v3M17 3v3M4 8h16"/><path d="M5 5h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg></span><span data-i18n="nav.agenda">الدورة</span></a>
+        <a class="nav-link" href="#benefit"><span class="nav-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"/><path d="M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg></span><span data-i18n="nav.benefit">المستفيد</span></a>
+        <a class="nav-link" href="#employers"><span class="nav-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21V8l6-4 6 4v13M10 21v-5h4v5"/></svg></span><span data-i18n="nav.employers">أصحاب العمل</span></a>
+        <a class="nav-link" href="#payments"><span class="nav-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18v10H3z"/><path d="M3 10h18M7 15h3"/></svg></span><span data-i18n="nav.payments">الدفعات</span></a>
+        <a class="nav-link" href="#budget"><span class="nav-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 6.5c0-1.9-2.2-3.5-5-3.5S7 4.6 7 6.5 9.2 10 12 10s5 1.6 5 3.5-2.2 3.5-5 3.5-5-1.6-5-3.5"/></svg></span><span data-i18n="nav.budget">القيمة</span></a>
+        <a class="nav-link" href="#why"><span class="nav-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.2 5.4L20 9.2l-4.4 3.7L16.8 19 12 15.8 7.2 19l1.2-6.1L4 9.2l5.8-.8L12 3z"/></svg></span><span data-i18n="nav.why">لماذا نحن</span></a>
+        <a class="nav-link" href="#plan"><span class="nav-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11.5 11 13.5 16 8.5"/><path d="M5 4h11a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/></svg></span><span data-i18n="nav.plan">الخطة</span></a>
+      </div>
     </div>
   </div>
 </nav>

@@ -73,7 +73,7 @@
 
     var toggle = document.getElementById("nav-toggle");
     if (toggle) {
-      toggle.setAttribute("aria-label", t(lang, "nav.menu"));
+      toggle.setAttribute("aria-label", t(lang, "nav.sections"));
     }
 
     persistLang(lang);
