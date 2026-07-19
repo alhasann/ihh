@@ -87,9 +87,6 @@ section{margin-top:34px}
 .kpi .lbl{font-size:13.5px;color:var(--muted);margin-top:4px}
 .c-g .num{color:var(--g)}
 
-.ex{background:var(--pl);border-radius:9px;padding:8px 12px;font-size:12.5px;color:var(--pd);margin-top:10px;text-align:start}
-.ex b{color:var(--p)}
-
 .ev-row{display:grid;grid-template-columns:1fr 66px;gap:10px;align-items:center;margin-bottom:12px;cursor:help;position:relative}
 .ev-name{font-size:14px;font-weight:600}
 .ev-bar{height:12px;background:var(--kl);border-radius:8px;overflow:hidden;margin-top:5px}
