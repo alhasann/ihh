@@ -17,6 +17,8 @@ section[id]{scroll-margin-top:88px}
 /* —— sticky navbar —— */
 .site-nav{
   position:sticky;top:0;z-index:100;
+  /* Keep chrome positions physical: logo left, tools right — ignore page RTL/LTR */
+  direction:ltr;
   background:rgba(247,248,244,.98);
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line);
@@ -26,10 +28,12 @@ section[id]{scroll-margin-top:88px}
   max-width:1150px;margin:0 auto;padding:10px 16px;
   display:flex;align-items:center;justify-content:space-between;gap:12px;
   min-height:68px;position:relative;
+  direction:ltr;
 }
 .nav-brand{
   display:inline-flex;align-items:center;gap:10px;
   text-decoration:none;color:var(--pd);min-width:0;
+  order:1;
 }
 .nav-logo{
   width:56px;height:56px;object-fit:contain;flex-shrink:0;
@@ -39,7 +43,9 @@ section[id]{scroll-margin-top:88px}
 .nav-brand-text small{font-size:11px;color:var(--g);font-weight:700}
 
 .nav-tools{
-  display:inline-flex;align-items:center;gap:8px;margin-inline-start:auto;
+  display:inline-flex;align-items:center;gap:8px;
+  margin-left:auto;margin-right:0;
+  order:2;direction:ltr;
 }
 .nav-toggle{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
@@ -71,6 +77,8 @@ section[id]{scroll-margin-top:88px}
 .nav-links{
   display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;
 }
+html[dir="rtl"] .nav-panel{direction:rtl}
+html[dir="ltr"] .nav-panel{direction:ltr}
 .nav-link{
   display:flex;align-items:center;gap:10px;min-width:0;
   text-decoration:none;color:var(--pd);
@@ -103,6 +111,7 @@ html[dir="rtl"] .nav-link.active{box-shadow:inset -3px 0 0 var(--p)}
 .lang-switch{
   display:inline-grid;grid-template-columns:1fr 1fr;align-items:stretch;
   gap:2px;padding:3px;border-radius:999px;
+  direction:ltr; /* AR | TR order stays fixed */
   background:linear-gradient(180deg,#eef3ef,#e6ece7);
   border:1px solid #d8e2db;
   box-shadow:inset 0 1px 2px rgba(34,48,31,.05);
