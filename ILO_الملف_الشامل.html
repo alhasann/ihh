@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ILO – الملف الشامل: المطلوب، لماذا نحن، وخطة العمل</title>
+<style>
+  :root{
+    --p:#026839;        /* primary green */
+    --pd:#014326;       /* darker shade of primary */
+    --g:#a09744;        /* gold */
+    --k:#c4be8a;        /* khaki */
+    --kl:#efedd9;       /* light tint of khaki */
+    --pl:#e6f2ec;       /* light tint of primary */
+    --bg:#f7f8f4; --card:#fff; --ink:#22301f; --muted:#67715f; --line:#e3e5d8;
+    --warn:#8a5a12;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Segoe UI",Tahoma,sans-serif;background:var(--bg);color:var(--ink);line-height:1.85}
+  .wrap{max-width:1150px;margin:0 auto;padding:24px}
+
+  .hero{background:linear-gradient(135deg,var(--pd),var(--p));color:#fff;border-radius:22px;padding:38px 32px;box-shadow:0 12px 32px rgba(2,104,57,.3);position:relative;overflow:hidden}
+  .hero:after{content:"";position:absolute;left:-70px;bottom:-120px;width:320px;height:320px;background:rgba(196,190,138,.16);border-radius:50%}
+  .hero:before{content:"";position:absolute;left:120px;top:-80px;width:200px;height:200px;background:rgba(255,255,255,.06);border-radius:50%}
+  .badge{display:inline-block;background:var(--g);color:#fff;font-weight:700;padding:5px 16px;border-radius:30px;font-size:13px;margin-bottom:13px}
+  .hero h1{font-size:28px;line-height:1.5;position:relative;z-index:2}
+  .hero p{margin-top:10px;font-size:16px;opacity:.94;position:relative;z-index:2}
+  .metarow{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;position:relative;z-index:2}
+  .chip{background:rgba(255,255,255,.13);padding:9px 15px;border-radius:12px;font-size:13.5px}
+  .chip b{display:block;font-size:11.5px;opacity:.75;margin-bottom:2px}
+  .chip.dl{background:var(--g);font-weight:700}
+
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin:20px 0 4px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 18px;align-items:center}
+  .legend .dot{width:12px;height:12px;border-radius:50%;display:inline-block;margin-left:5px;vertical-align:middle}
+  .legend b{color:var(--ink)}
+
+  section{margin-top:34px}
+  .sec-head{display:flex;align-items:center;gap:13px;margin-bottom:16px}
+  .sec-num{min-width:44px;height:44px;border-radius:13px;background:var(--p);color:#fff;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:800}
+  .sec-head h2{font-size:22px;color:var(--pd)}
+  .sec-head span{color:var(--muted);font-size:13.5px;display:block;font-weight:600}
+
+  .card{background:var(--card);border-radius:16px;padding:20px;box-shadow:0 5px 16px rgba(34,48,31,.06);border:1px solid var(--line)}
+  .grid{display:grid;gap:14px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:840px){.g2,.g3,.g4{grid-template-columns:1fr}}
+
+  /* tooltips */
+  [data-tip]{position:relative}
+  [data-tip]:hover{z-index:60}
+  [data-tip]:hover::after{
+    content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);right:0;
+    background:var(--pd);color:#fff;padding:10px 14px;border-radius:10px;
+    font-size:12.5px;line-height:1.7;width:max-content;max-width:340px;
+    white-space:normal;z-index:99;box-shadow:0 10px 26px rgba(0,0,0,.3);pointer-events:none
+  }
+  [data-tip]:hover::before{content:"";position:absolute;bottom:calc(100% + 2px);right:20px;border:6px solid transparent;border-top-color:var(--pd);z-index:99;pointer-events:none}
+  .src-dot{width:10px;height:10px;border-radius:50%;display:inline-block;position:absolute;top:12px;left:12px}
+  .f-tor .src-dot{background:var(--p)} .f-tpl .src-dot{background:var(--g)}
+  .f-csv .src-dot{background:var(--k);border:1px solid var(--g)} .f-li .src-dot{background:#8a8a8a}
+
+  .item{background:var(--card);border-radius:14px;padding:18px;border:1px solid var(--line);box-shadow:0 4px 12px rgba(34,48,31,.05);position:relative;transition:.15s;cursor:help}
+  .item:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(34,48,31,.13)}
+  .item h3{font-size:15.5px;color:var(--pd);margin-bottom:6px;padding-left:16px}
+  .item p{font-size:13.5px;color:var(--muted)}
+  .item .big{font-size:25px;font-weight:800;color:var(--p)}
+
+  .kpi{text-align:center}
+  .kpi .num{font-size:31px;font-weight:800;color:var(--p)}
+  .kpi .lbl{font-size:13.5px;color:var(--muted);margin-top:4px}
+  .c-g .num{color:var(--g)}
+
+  .ex{background:var(--pl);border-radius:9px;padding:8px 12px;font-size:12.5px;color:var(--pd);margin-top:10px;text-align:right}
+  .ex b{color:var(--p)}
+
+  /* eval bars */
+  .ev-row{display:grid;grid-template-columns:1fr 66px;gap:10px;align-items:center;margin-bottom:12px;cursor:help;position:relative}
+  .ev-name{font-size:14px;font-weight:600}
+  .ev-bar{height:12px;background:var(--kl);border-radius:8px;overflow:hidden;margin-top:5px}
+  .ev-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,var(--k),var(--p))}
+  .ev-pct{font-size:17px;font-weight:800;color:var(--p);text-align:left}
+
+  /* agenda */
+  .day{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  .day-h{background:var(--pd);color:#fff;padding:10px 16px;font-weight:700;font-size:15px}
+  .day-h.alt{background:var(--p)}
+  .sess{display:flex;gap:10px;padding:9px 14px;border-bottom:1px solid var(--line);font-size:13.5px;cursor:help;position:relative}
+  .sess:hover{background:var(--pl)}
+  .sess .t{min-width:90px;color:var(--muted);font-weight:600;font-size:12.5px;direction:ltr;text-align:right}
+  .sess .brk{color:var(--g);font-weight:700}
+
+  /* payments */
+  .pay{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+  @media(max-width:840px){.pay{grid-template-columns:repeat(2,1fr)}}
+  .pay-step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 10px;text-align:center;cursor:help;position:relative}
+  .pay-step .pct{font-size:23px;font-weight:800;color:var(--p)}
+  .pay-step .nm{font-size:12.5px;color:var(--muted);margin-top:4px}
+
+  /* work plan */
+  .day-plan{display:flex;gap:12px;margin-bottom:10px}
+  .dp-date{min-width:86px;background:var(--p);color:#fff;border-radius:11px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 4px}
+  .dp-date b{font-size:16px}.dp-date span{font-size:10.5px;opacity:.85}
+  .dp-body{flex:1;background:#fff;border:1px solid var(--line);border-radius:11px;padding:12px 16px;cursor:help;position:relative}
+  .dp-body h4{font-size:14.5px;color:var(--pd);margin-bottom:3px}
+  .dp-body p{font-size:13px;color:var(--muted)}
+  .dp-crit .dp-date{background:var(--g)}
+
+  /* why-us */
+  .why{border-right:5px solid var(--p)}
+  .why-line{padding:13px 6px;border-bottom:1px solid var(--line);cursor:help;position:relative}
+  .why-line:hover{background:var(--pl)}
+  .why-line h4{font-size:15px;color:var(--pd)}
+  .why-line h4 .w{background:var(--p);color:#fff;font-size:11.5px;padding:2px 10px;border-radius:20px;margin-right:8px;font-weight:700}
+  .why-line p{font-size:13.5px;color:var(--muted);margin-top:3px}
+  .ids{margin-top:7px;display:flex;flex-wrap:wrap;gap:5px}
+  .id{background:var(--kl);border:1px solid var(--k);color:#5c531f;font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:14px;direction:ltr}
+  .gap-tag{background:var(--kl);color:var(--warn);font-size:12px;font-weight:700;padding:3px 11px;border-radius:20px;border:1px solid var(--g)}
+
+  .geo-row{display:grid;grid-template-columns:130px 1fr 60px;gap:10px;align-items:center;margin-bottom:8px;font-size:13.5px;cursor:help;position:relative}
+  .geo-bar{height:14px;background:var(--kl);border-radius:8px;overflow:hidden}
+  .geo-fill{height:100%;background:linear-gradient(90deg,var(--k),var(--p));border-radius:8px}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th{background:var(--pd);color:#fff;padding:9px 11px;text-align:right;font-weight:600}
+  td{padding:9px 11px;border-bottom:1px solid var(--line)}
+  tr:nth-child(even) td{background:#fafbf6}
+  td.n{font-weight:800;color:var(--p);white-space:nowrap}
+
+  .note{background:var(--kl);border:1px solid var(--k);border-radius:12px;padding:13px 17px;color:#5c531f;font-size:13.5px;margin-top:12px}
+  .alert{background:#fdf6e3;border:2px solid var(--g);border-radius:12px;padding:13px 17px;color:var(--warn);font-size:13.5px;margin-top:12px;font-weight:600}
+  .flow{display:flex;flex-wrap:wrap;gap:10px}
+  .flow-step{flex:1;min-width:145px;background:linear-gradient(135deg,#fff,var(--pl));border:1px solid var(--line);border-radius:14px;padding:15px;cursor:help;position:relative}
+  .flow-step .n{width:27px;height:27px;background:var(--p);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-bottom:7px}
+  .flow-step h4{font-size:14.5px;color:var(--pd);margin-bottom:3px}
+  .flow-step p{font-size:12.5px;color:var(--muted)}
+  footer{text-align:center;color:var(--muted);font-size:12.5px;margin:36px 0 10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="badge">دعوة شراكة · ILO Call for Implementing Partners</span>
+    <h1>الملف الشامل: ما المطلوب، لماذا نحن، وكيف نصل للتسليم</h1>
+    <p>تعزيز خدمات التوظيف العامة والإرشاد المهني ومطابقة الوظائف وأنظمة الإحالة — للعائدين والنازحين والمجتمعات المحلية في <b>حلب وحماة وإدلب</b></p>
+    <div class="metarow">
+      <div class="chip"><b>البرنامج</b>PROSPECTS II Opportunity Fund + EU Durable Solutions</div>
+      <div class="chip"><b>التنفيذ</b>10 آب 2026 → 30 آب 2027 (13 شهرًا)</div>
+      <div class="chip"><b>التقييم</b>فني 70% · مالي 30%</div>
+      <div class="chip dl"><b style="opacity:.85">الموعد النهائي</b>27 تموز 2026 · 23:59 دمشق</div>
+    </div>
+  </header>
+
+  <div class="card" style="margin-top:20px;border-right:6px solid var(--p);background:linear-gradient(135deg,#fff,var(--pl))">
+    <p style="font-size:18px;font-weight:800;color:var(--pd);line-height:2">«ILO تملك المنهجية والأدوات؛ ونحن نملك الأرض والناس والثقة — هذا العقد يشتري قدرة وصول وتنفيذ راكمناها في هذه المحافظات منذ أكثر من عشر سنوات.»</p>
+  </div>
+
+  <!-- 1: essence -->
+  <section>
+    <div class="sec-head"><div class="sec-num">؟</div><div><h2>الفكرة في سطرين</h2><span>قبل أي تفصيل</span></div></div>
+    <div class="card" style="border-right:6px solid var(--g)">
+      <p>ILO تبحث عن منظمة تنفّذ لها <b>خدمة توظيف متكاملة</b> في حلب وحماة وإدلب: تجد الباحثين عن عمل، تدرّبهم يومين، ثم توصلهم فعليًا بأصحاب عمل — مع نقل المعرفة لموظفي الدولة (مكاتب التشغيل) ليكملوا بعد انتهاء المشروع.</p>
+      <p style="margin-top:8px"><b style="color:var(--p)">هذا عقد نتائج لا عقد أنشطة:</b> المال يُصرف على 6 دفعات، وكل دفعة "مقفلة" برقم يجب إثباته بالوثائق. ولا مساعدات مادية للمستفيدين — القيمة المقدمة لهم هي الخدمة والوصلة بسوق العمل.</p>
+    </div>
+  </section>
+
+  <!-- 2: submission -->
+  <section>
+    <div class="sec-head"><div class="sec-num">1</div><div><h2>ماذا نُسلّم يوم 27 تموز؟</h2><span>حزمة التقديم الكاملة</span></div></div>
+    <div class="grid g3">
+      <div class="item f-tpl" data-tip="المصدر: TECH-İLO.docx — تعليمات القالب + ToR جدول 15: هيكل من 6 أقسام، 10–15 صفحة عدا الغلاف والفهرس والملاحق"><span class="src-dot"></span><h3>العرض الفني (10–15 صفحة)</h3><p>6 أقسام: الملف المؤسسي · الخبرة · المنهجية · خطة العمل والرصد · الكادر · المخاطر</p></div>
+      <div class="item f-tor" data-tip="المصدر: ToR (1).docx — قالب العرض المالي + جدول 16: فصل تكاليف الأنشطة المباشرة عن تكاليف الإدارة، مع بنود تشغيلية وكادر وOverhead"><span class="src-dot"></span><h3>العرض المالي (قالب ILO)</h3><p>في مجلد منفصل — أنشطة مباشرة مقابل إدارة</p></div>
+      <div class="item f-tpl" data-tip="المصدر: TECH-İLO.docx — تعليمات القالب وقسم الملاحق: CVs محدثة وموقعة + وثائق تسجيل + عينات تقارير + خطابات مرجعية + نماذج تسجيل مورد ILO"><span class="src-dot"></span><h3>الملاحق والوثائق</h3><p>CVs الكادر · التسجيل القانوني · عينات تقارير · مراجع · نماذج مورّد ILO موقّعة</p></div>
+      <div class="item f-tpl" data-tip="المصدر: TECH-İLO.docx — مجلدان رقميان منفصلان (فني/مالي) داخل ZIP واحد باسم: [اسم المنظمة] – [عنوان المشروع] – [تاريخ التسليم]"><span class="src-dot"></span><h3>ZIP بتسمية إلزامية</h3><p>[اسم المنظمة] – [عنوان المشروع] – [التاريخ]</p></div>
+      <div class="item f-tpl" data-tip="المصدر: TECH-İLO.docx — عنوان البريد يطابق حرفيًا: Strengthening Public Employment Services, Career Guidance, Job Matching, and Referral Systems for Returnees, IDPs, and Local Communities in Syria"><span class="src-dot"></span><h3>عنوان بريد حرفي بالإنجليزية</h3><p>نسخ-لصق من الإعلان دون أي تغيير</p></div>
+      <div class="item f-li" data-tip="المصدر: منشور Qutayba Al Aloush على LinkedIn + TECH-İLO.docx — الاستفسارات: baniawwad@ilo.org / jammal@ilo.org"><span class="src-dot"></span><h3>الموعد النهائي</h3><p class="big">27 تموز · 23:59</p><p>بتوقيت دمشق — سلّم يوم 26 احتياطًا</p></div>
+    </div>
+  </section>
+
+  <!-- 3: evaluation -->
+  <section>
+    <div class="sec-head"><div class="sec-num" style="background:var(--g)">%</div><div><h2>كيف يُقيَّم عرضنا؟</h2><span>6 معايير فنية = 70% من القرار</span></div></div>
+    <div class="card">
+      <div class="ev-row" data-tip="المصدر: ToR جدول 14 بند 1 — خبرتنا هنا: التدريب المهني وورش النساء ودعم العمل الحر (انظر قسم 'لماذا نحن')"><div><div class="ev-name">1 · الخبرة في برامج تعزيز التوظيف</div><div class="ev-bar"><div class="ev-fill" style="width:100%"></div></div></div><div class="ev-pct">20%</div></div>
+      <div class="ev-row" data-tip="المصدر: ToR جدول 14 بند 2 — نقطة قوتنا الكبرى: عقد كامل من العمل في حلب وإدلب + حضور حماة منذ 2014"><div><div class="ev-name">2 · الحضور الميداني في حلب وحماة وإدلب + علاقة MoSAL/PES/TVET</div><div class="ev-bar"><div class="ev-fill" style="width:75%"></div></div></div><div class="ev-pct">15%</div></div>
+      <div class="ev-row" data-tip="المصدر: ToR جدول 14 بند 3 — يُكتب في القسم 3 من العرض: فهم الأدوات وأداة ILO الرقمية وخطة النساء/الإعاقة والحماية"><div><div class="ev-name">3 · فهم الشروط المرجعية والمنهجية وضمان الجودة</div><div class="ev-bar"><div class="ev-fill" style="width:100%"></div></div></div><div class="ev-pct">20%</div></div>
+      <div class="ev-row" data-tip="المصدر: ToR جدول 14 بند 4 — جدول 13 شهرًا موزع على المحافظات ومتوافق مع عتبات الدفعات"><div><div class="ev-name">4 · تنظيم المهام والجدول الزمني</div><div class="ev-bar"><div class="ev-fill" style="width:75%"></div></div></div><div class="ev-pct">15%</div></div>
+      <div class="ev-row" data-tip="المصدر: ToR جدول 14 بند 5 — أهم قرار منفرد في العرض: من قائد الفريق؟ يُفضَّل خبرة إرشاد مهني/خدمات توظيف لسد فجوتنا"><div><div class="ev-name">5 · الكادر المقترح + السير الذاتية</div><div class="ev-bar"><div class="ev-fill" style="width:100%"></div></div></div><div class="ev-pct">20%</div></div>
+      <div class="ev-row" data-tip="المصدر: ToR جدول 14 بند 6 — ورقتنا: مشروعا OCHA/CBPF برموز عقود قابلة للتحقق + عمل Cluster"><div><div class="ev-name">6 · الخبرة مع المانحين الدوليين</div><div class="ev-bar"><div class="ev-fill" style="width:50%"></div></div></div><div class="ev-pct">10%</div></div>
+    </div>
+  </section>
+
+  <!-- 4: targets with real examples -->
+  <section>
+    <div class="sec-head"><div class="sec-num">2</div><div><h2>الأهداف الملزمة — بأمثلة من أرض الواقع</h2><span>كل رقم = بضاعة يجب تسليمها بإثبات · الأمثلة داخل البطاقات</span></div></div>
+    <div class="grid g2">
+      <div class="item f-tor" data-tip="المصدر: ToR جدولا 1 و4 — مجموعات 40–50 شخصًا، 64–80 دورة، وحضور اليومين كاملين شرط للاحتساب"><span class="src-dot"></span><h3>3,200 يكملون دورة اليومين</h3><p>تدريب جماعي في قاعات مراكز التشغيل الحكومية ومراكزنا</p><div class="ex"><b>مثال:</b> أحمد الحمود، عائد من لبنان إلى جنديرس (24 عامًا، دهان)، يحضر السبت والأحد في قاعة مركز رفيدة بأعزاز مع 44 آخرين. حضر يومًا واحدًا فقط؟ لا يُحتسب.</div></div>
+      <div class="item f-tor c-g" data-tip="المصدر: ToR جدول 4 — ≥1,120 امرأة (35%) و≥160 من ذوي الإعاقة (5%) — مربوطة بجدول الدفعات رقمًا رقمًا"><span class="src-dot"></span><h3>35% نساء · 5% ذوو إعاقة</h3><p>ليست شعارات — أرقام تجميد دفعات</p><div class="ex"><b>مثال:</b> أم محمد، أرملة في الشمارين تعيل 4 أطفال — نؤمّن لها النقل وجلسات نسائية. وخالد من سراقب (بُترت ساقه) — نختار له قاعة بطابق أرضي.</div></div>
+      <div class="item f-tor" data-tip="المصدر: ToR جدول 8 — خطط إحالة فردية لكل مستفيد مُنمَّط، مع سجلات تتبع ومتابعة"><span class="src-dot"></span><h3>2,000 إحالة ومطابقة</h3><p>ربط كل شخص بفرصة تناسب ملفه</p><div class="ex"><b>مثال:</b> موظفنا يقرأ ملف أحمد: "دهان، خبرة سنتان" — يتصل بمعمل مفروشات في الشيخ نجار سبق أن سجّل شاغرًا لديه، ويحجز له مقابلة ويوثق الإحالة في نظام ILO.</div></div>
+      <div class="item f-tor" data-tip="المصدر: ToR جدول 8 — التعريف الصارم: عقد/تأكيد صاحب عمل/سجل رواتب للوظيفة، أو تسجيل نشاط/سجل مبيعات/مقابلة موثقة للعمل الحر"><span class="src-dot"></span><h3>1,000 توظيف مُوثَّق</h3><p>الكلام لا يُحتسب — الوثيقة فقط</p><div class="ex"><b>مثال:</b> بعد شهر نتصل: هل بدأ أحمد العمل؟ نطلب صورة العقد أو تأكيدًا موقّعًا من المعمل. أم محمد فتحت مشغل خياطة؟ صور + سجل مبيعات + زيارة ميدانية.</div></div>
+      <div class="item f-tor" data-tip="المصدر: ToR جدول 9 — لكل معرض: ≥10 أصحاب عمل، ≥20 شاغرًا، ≥50 مستفيدًا، كتيّب شواغر، ودراسة تتبّع بعد 3 أشهر"><span class="src-dot"></span><h3>16 معرض توظيف + 150 صاحب عمل</h3><p>لقاء مباشر بين الطرفين + قاعدة شواغر</p><div class="ex"><b>مثال:</b> الخميس في صالة بحماة: 12 صاحب عمل خلف طاولات، 60 باحثًا بسيرهم المطبوعة، مقابلات فورية. بعد 3 أشهر: اتصال بالجميع — "من توظّف؟"</div></div>
+      <div class="item f-tor" data-tip="المصدر: ToR جدول 6 — 3 ميسّرين من PES/DoSAL أو TVET في كل دورة، 50$ للميسر يوميًا من ميزانيتنا، بسجلات موقعة — هذا هو 'نقل المعرفة' الذي يضمن الاستدامة"><span class="src-dot"></span><h3>3 ميسّرين حكوميين × 50$ يوميًا</h3><p>يدرّبون معنا لا يشاهدون — والأجر علينا</p><div class="ex"><b>مثال:</b> المهندسة سمر من مكتب تشغيل حلب والأستاذ مازن من مركز التدريب المهني يقدّمان جلسات معنا — بعد المشروع يكملان الخدمة بدوننا. هذا ما تشتريه ILO فعلًا.</div></div>
+      <div class="item f-tor" data-tip="المصدر: ToR جدولا 2 و3 — أول أسبوعين: 8 اجتماعات تنسيق + تقرير البدء؛ أول شهر: 8 مكاتب إحالة؛ طوال المشروع: 32 نشاط توعية"><span class="src-dot"></span><h3>8 اجتماعات · 8 مكاتب إحالة · 32 توعية</h3><p>البنية التحتية للخدمة</p><div class="ex"><b>مثال:</b> طاولة وموظف ولافتة ILO داخل مركز التشغيل بحلب ومركز شبابنا بإدلب ومركز مجتمعي بحماة — أي شخص يدخل يسأل "بدي شغل" يجد من يسجّله.</div></div>
+      <div class="item f-tor" data-tip="المصدر: ToR قسم Scope — أداة ILO الرقمية إلزامية لكل تسجيل وتنميط وإحالة، وممنوع أي نظام موازٍ دون إذن خطي + جدول 10: 6 قصص نجاح مصورة احترافيًا وآلية شكاوى بردّ خلال 5 أيام"><span class="src-dot"></span><h3>أداة ILO الرقمية + توثيق كل شيء</h3><p>لا دفاتر ولا إكسل خاص — وكل حدث يترك أثرًا رقميًا</p><div class="ex"><b>مثال:</b> مشاركة تتصل على رقم الشكاوى: "استُبعدت من الإحالات بلا سبب" — أمامنا 5 أيام عمل للرد والمعالجة، وتُذكر الشكوى في تقرير ILO الشهري.</div></div>
+    </div>
+  </section>
+
+  <!-- 5: two-day agenda -->
+  <section>
+    <div class="sec-head"><div class="sec-num" style="background:var(--g)">٢</div><div><h2>دورة اليومين: 8 جلسات محددة سلفًا</h2><span>الأجندة من الـToR حرفيًا</span></div></div>
+    <div class="grid g2">
+      <div class="day">
+        <div class="day-h">اليوم الأول</div>
+        <div class="sess" data-tip="ToR جدول 5 — تسجيل بكشوف + QR إلكتروني"><span class="t">08:00–09:00</span><span>تسجيل الحضور</span></div>
+        <div class="sess" data-tip="ToR جدول 5 — عرض الأهداف والمنهجية"><span class="t">09:00–09:30</span><span>افتتاح</span></div>
+        <div class="sess" data-tip="ToR جدول 5 — الجلسة 1"><span class="t">09:30–11:00</span><span><b>ج1:</b> إرشاد مهني وتوجيه لسوق العمل</span></div>
+        <div class="sess" data-tip="ToR جدول 5 — الجلسة 2"><span class="t">11:15–13:00</span><span><b>ج2:</b> مهارات التوظيف والبحث عن عمل</span></div>
+        <div class="sess" data-tip="ToR جدول 5 — الجلسة 3: نماذج CV وقوائم فحص مقابلات"><span class="t">13:00–14:00</span><span><b>ج3:</b> كتابة CV عملية وتدريب مقابلات</span></div>
+        <div class="sess" data-tip="ToR جدول 5 — الجلسة 4"><span class="t">14:00–15:00</span><span><b>ج4:</b> الحقوق في العمل والعمل اللائق</span></div>
+        <div class="sess" data-tip="ToR جدول 5 — الغداء على المنظمة المنفذة"><span class="t">15:00</span><span class="brk">ختام + غداء</span></div>
+      </div>
+      <div class="day">
+        <div class="day-h alt">اليوم الثاني</div>
+        <div class="sess" data-tip="ToR جدول 5 — الجلسة 5: مواد وملصقات السلامة المهنية"><span class="t">09:00–10:15</span><span><b>ج5:</b> السلامة والصحة المهنية OSH</span></div>
+        <div class="sess" data-tip="ToR جدول 5 — الجلسة 6: قوائم شواغر حقيقية ونماذج إحالة"><span class="t">10:30–11:45</span><span><b>ج6:</b> مطابقة الشواغر ومسارات الإحالة</span></div>
+        <div class="sess" data-tip="ToR جدول 5 — الجلسة 7: قوالب خطة فردية، ومن يحتاج متابعة مكثفة يُحوَّل لمكتب الإحالة"><span class="t">11:45–13:00</span><span><b>ج7:</b> خطة عمل فردية لكل مشارك</span></div>
+        <div class="sess" data-tip="ToR جدول 5 — الجلسة 8: تقييم وتغذية راجعة"><span class="t">13:00–14:00</span><span><b>ج8:</b> استشارة جماعية وخطوات تالية</span></div>
+        <div class="sess" data-tip="ToR جدول 5 — تأكيد الإحالات + غداء"><span class="t">14:00–15:00</span><span class="brk">تأكيد الإحالات + غداء</span></div>
+        <div class="sess" data-tip="ToR جدول 4 — شرط الاحتساب ضمن الـ3,200"><span class="t">⚠</span><span>حضور <b>اليومين كاملين</b> شرط الاحتساب</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6: what beneficiaries get -->
+  <section>
+    <div class="sec-head"><div class="sec-num">3</div><div><h2>ماذا يأخذ المستفيد؟ (سؤال مهم)</h2><span>عقد خدمات — لا منح ولا سلال</span></div></div>
+    <div class="grid g3">
+      <div class="item f-tor" data-tip="المصدر: ToR قسم حزمة الخدمات + جدول 7 — غداء وضيافة، نقل حيث تقره ILO، قرطاسية وملف ودفتر، CV مطبوعة، شهادة بقالب ILO"><span class="src-dot"></span><h3>خلال الدورة</h3><p>غداء وضيافة · نقل مدفوع · قرطاسية · CV مطبوعة · شهادة ILO</p></div>
+      <div class="item f-tor" data-tip="المصدر: ToR قسم الإحالات — المستفيد قد يُحال إلى: SIYB (دعم إنشاء مشروع)، تمويل صغير، تدريب TVET، عمل مأجور في الأشغال العامة EIIP/PWP، تلمذة مهنية — ينفذها ILO وشركاء آخرون خارج عقدنا"><span class="src-dot"></span><h3>بعد الدورة: بوابة لفرص حقيقية</h3><p>إحالة لبرامج ريادة وتمويل وتدريب وأشغال عامة مدفوعة — ننفذها نحن كبوابة، ويموّلها آخرون</p></div>
+      <div class="item f-csv" data-tip="تحليلنا: مؤسستكم معروفة بالإغاثة (سلال، أفران، كفالات) — سيأتي مسجّلون يتوقعون مساعدة مادية وقد ينسحبون عند اكتشاف أنها 'دورة'. يعالَج برسائل توعية صريحة + يُدرج كخطر في القسم 6 من العرض"><span class="src-dot"></span><h3>⚠ خطر يخصنا: فجوة التوقعات</h3><p>الناس تعرفنا "منظمة إغاثة" — رسائل التوعية يجب أن تقول بوضوح: خدمة توظيف، ليست مساعدة</p></div>
+    </div>
+  </section>
+
+  <!-- 7: why employers -->
+  <section>
+    <div class="sec-head"><div class="sec-num" style="background:var(--g)">4</div><div><h2>لماذا يتعامل معنا أصحاب العمل؟</h2><span>لأننا نحل لهم مشكلة — لا لأننا نطلب معروفًا</span></div></div>
+    <div class="flow">
+      <div class="flow-step" data-tip="التوظيف يكلف صاحب العمل وقتًا ومالًا — نقدم له مرشحين مفلترين من قاعدة بيانات مُنمَّطة بدل عشرات العشوائيين"><div class="n">1</div><h4>قسم توظيف مجاني له</h4><p>مرشحون مفلترون حسب طلبه، بسير جاهزة</p></div>
+      <div class="flow-step" data-tip="خريج دورتنا يعرف المقابلات والسلامة المهنية وحقوقه وواجباته — احتمال فشله بأول أسبوع أقل"><div class="n">2</div><h4>مرشح أقل مخاطرة</h4><p>مدرّب على المقابلة والسلامة والانضباط</p></div>
+      <div class="flow-step" data-tip="المصدر: ToR — المنهجية demand-driven: نجمع شواغر واحتياجات أصحاب العمل أولًا ثم نوجه التدريب والإحالة نحوها"><div class="n">3</div><h4>نبدأ من طلبه هو</h4><p>نجمع شواغره أولًا ثم نرسل من يطابقها</p></div>
+      <div class="flow-step" data-tip="المصدر: ToR المخرج 18 — حفل تقدير ختامي علني لأصحاب العمل المشاركين + وجاهة الشراكة مع ILO وغرف التجارة وMoSAL"><div class="n">4</div><h4>وجاهة أممية</h4><p>معارض بمظلة ILO + حفل تقدير + دعاية مجانية</p></div>
+      <div class="flow-step" data-tip="من Syria_Projects_2482.csv — أفرانكم الـ20+ وورشكم وموردوكم ومقاولوكم على مدى عقد = شبكة أصحاب عمل تعرفكم بالاسم. أول 30–40 من الـ150 موجودون في دفاتركم"><div class="n">5</div><h4>شبكتنا الجاهزة</h4><p>موردونا ومقاولونا وورشنا = أول 40 صاحب عمل</p></div>
+    </div>
+    <div class="note">وسوريا في موجة إعادة إعمار وعودة: معامل كثيرة تشكو نقص العمال المهرة — في قطاعات كالبناء والأغذية والخياطة، صاحب العمل يبحث عن العامل أكثر مما يبحث العامل عنه. ومع ذلك يبقى "ضعف الشواغر" خطرًا معترفًا به يدخل مصفوفة المخاطر.</div>
+  </section>
+
+  <!-- 8: payments -->
+  <section>
+    <div class="sec-head"><div class="sec-num">5</div><div><h2>المال: 6 دفعات مقفلة بأرقام</h2><span>كل دفعة لها "شرط فتح" يُثبت بالوثائق</span></div></div>
+    <div class="pay">
+      <div class="pay-step" data-tip="ToR جدول 13 — عند التوقيع واعتماد خطة العمل. سقف صارم: لا تتجاوز 30,000$ مهما كان حجم العقد"><div class="pct">5%</div><div class="nm">التوقيع + الخطة<br>(سقف 30 ألف $)</div></div>
+      <div class="pay-step" data-tip="ToR جدول 13 — تقرير المسح + مكاتب الإحالة + 800 مسجّل (منهم 280 امرأة و40 من ذوي الإعاقة)"><div class="pct">20%</div><div class="nm">800 مسجّل</div></div>
+      <div class="pay-step" data-tip="ToR جدول 13 — 1,600 أكملوا الدورة (560 امرأة/80 إعاقة) + 800 إحالة + 400 توظيف موثق + 3 معارض"><div class="pct">25%</div><div class="nm">1,600 متدرب<br>+ 400 توظيف</div></div>
+      <div class="pay-step" data-tip="ToR جدول 13 — 2,400 أكملوا (840/120) + 1,500 إحالة + 750 توظيف + 6 معارض"><div class="pct">25%</div><div class="nm">2,400 متدرب<br>+ 6 معارض</div></div>
+      <div class="pay-step" data-tip="ToR جدول 13 — 3,000 أكملوا (1,050/150) + 1,900 إحالة + 900 توظيف + 14 معرضًا + قصص النجاح"><div class="pct">20%</div><div class="nm">3,000 متدرب<br>+ 14 معرضًا</div></div>
+      <div class="pay-step" data-tip="ToR جدول 13 — الإنجاز الكامل (3,200/2,000/1,000/16) متحققًا منه من ILO + التقارير النهائية + 6 قصص مصورة"><div class="pct">5%</div><div class="nm">الإنجاز الكامل</div></div>
+    </div>
+    <div class="alert" data-tip="ToR قسم Payment Schedule — التصفية بدفتر أستاذ GL وكشف بنكي وطلب دفع موقع، وحساب بنكي منفصل لأموال ILO، وفحوص مالية مفاجئة" style="cursor:help">⚠ قاعدة الـ80%: لا تُصرف دفعة جديدة قبل إنفاق وتوثيق 80% من السابقة. مع سقف الـ30 ألف$ للدفعة الأولى، معناها العملي: <b>نحتاج تمويلًا جسريًا ذاتيًا 50–100 ألف$ للشهور الأولى</b>.</div>
+  </section>
+
+  <!-- 9: grant value -->
+  <section>
+    <div class="sec-head"><div class="sec-num" style="background:var(--g)">$</div><div><h2>كم قيمة العقد؟</h2><span>غير معلنة — نحن من يقترحها، وهذا تقديرنا</span></div></div>
+    <div class="card">
+      <p style="font-size:14px;margin-bottom:12px"><b style="color:var(--p)">الحقيقة أولًا:</b> لا يوجد رقم معلن في أي وثيقة. المذكور حرفيًا شيئان فقط: الدفعة الأولى ≤ 30,000$، وأنها تمثل 5%. الحساب العكسي (30,000 ÷ 5%) يشير إلى أن واضع الجدول يفترض عقدًا بحدود <b>600 ألف $</b> — وهذا استنتاجنا لا تصريح ILO. تقديرنا من الأسفل للأعلى يؤكد النطاق:</p>
+      <table>
+        <tr><th>البند</th><th>الأساس</th><th>تقدير</th></tr>
+        <tr><td>أجور الميسّرين الحكوميين</td><td>3 × 50$ × يومان × ~72 دورة</td><td class="n">~22,000$</td></tr>
+        <tr><td>ضيافة وغداء الدورات</td><td>3,200 مشاركًا × يومان</td><td class="n">40–50,000$</td></tr>
+        <tr><td>نقل + قرطاسية + طباعة + شهادات</td><td>قائمة جدول 7 لكل دورة</td><td class="n">35–45,000$</td></tr>
+        <tr><td>16 معرض توظيف</td><td>قاعات، أجنحة، ضيافة، كتيبات</td><td class="n">50–80,000$</td></tr>
+        <tr><td>تصوير احترافي + 6 قصص نجاح</td><td>لكل الأنشطة، جودة مانحين</td><td class="n">~5,000$</td></tr>
+        <tr><td>كادر 13 شهرًا</td><td>10–14 موظفًا (قيادة، توظيف، MEAL، منسقون، مالية)</td><td class="n">150–200,000$</td></tr>
+        <tr><td>تشغيل + 8 مكاتب إحالة + تنقلات</td><td>مكاتب، اتصالات، ميدان</td><td class="n">50–70,000$</td></tr>
+        <tr><td>إدارة + Overhead</td><td>10–15%</td><td class="n">—</td></tr>
+        <tr><td><b>النطاق المنطقي الإجمالي</b></td><td></td><td class="n" style="font-size:16px">430–630 ألف $</td></tr>
+      </table>
+      <div class="note">لا تسعّروا منخفضًا لكسب الـ30% المالية — المُقيّم يشطب العروض "غير الواقعية" لأن الأرقام الملزمة لا تُنجز بميزانية هزيلة.</div>
+    </div>
+  </section>
+
+  <!-- 10: why us -->
+  <section>
+    <div class="sec-head"><div class="sec-num">6</div><div><h2>لماذا نحن؟ — بأرقام مشاريعنا الفعلية</h2><span>كل سطر مربوط بمعيار تقييم، وكل رقم Proje ID من ملفكم قابل للتحقق — بعض هذه المشاريع أُلغي لاحقًا، لكن فكرتها تبقى مهمة ومرتبطة مباشرة بالمطلوب</span></div></div>
+    <div class="card why">
+      <div class="why-line" data-tip="المصدر: Syria_Projects_2482.csv — مركز تعليم المكفوفين بأعزاز (4 سنوات)، مراكز تأهيل الباب وأعزاز REM، مراكز الأطراف الصناعية منذ 2016، روضة البيان للأطفال ذوي الإعاقة — حيث يتعثر المنافسون أمام هدف الـ5% نحن نخدم هذه الفئة يوميًا">
+        <h4><span class="w">هدف الإعاقة 5%</span>ملف الإعاقة: سجل نادر بين المنافسين</h4>
+        <p>مركز مكفوفين + مراكز تأهيل + أطراف صناعية منذ 2016 — نصل لذوي الإعاقة لأننا نخدمهم أصلًا.</p>
+        <div class="ids"><span class="id">21229</span><span class="id">19436</span><span class="id">17533</span><span class="id">17482</span><span class="id">15338</span><span class="id">9234</span><span class="id">22485</span><span class="id">6952</span><span class="id">17545</span></div>
+      </div>
+      <div class="why-line" data-tip="المصدر: Syria_Projects_2482.csv — ~1,007 سجلًا في حلب وريفها، ~191 في إدلب، ~335 لحماة/حمص (كفالات منذ 2014). مراكز الشباب التي يشترط الـToR التنفيذ عبرها نملك ونشغّل بعضها فعلًا">
+        <h4><span class="w">معيار 2 · 15%</span>موجودون قبل المشروع وسنبقى بعده</h4>
+        <p>عقد كامل في حلب (أعزاز، عفرين، جنديرس، جرابلس، الباب، مارع) وإدلب (سرمدا، سراقب، بنّش) وحماة منذ 2014 — مكاتب وفرق وقبول مجتمعي جاهز، ومراكز شباب نشغّلها بأنفسنا.</p>
+        <div class="ids"><span class="id">21806 حلب شباب</span><span class="id">22416 إدلب شباب</span><span class="id">16838 مارع</span><span class="id">16839 أحترين</span><span class="id">24211 حمص</span><span class="id">21606 حماة</span><span class="id">3791→23251 كفالات حماة 2014–2025</span></div>
+      </div>
+      <div class="why-line" data-tip="المصدر: Syria_Projects_2482.csv — مركز فاطمة خاتون المهني (إنشاء 13652 + تشغيل 12816)، مركز رفيدة للتعليم الشعبي 5 سنوات متتالية، دورات التمكين المهني 11290، ثانوية أريحا التجارية 16158">
+        <h4><span class="w">معيار 1 · 20%</span>التدريب المهني: أنشأنا وشغّلنا مراكز كاملة</h4>
+        <p>مركز فاطمة خاتون المهني + مركز رفيدة للتعليم الشعبي (5 سنوات متواصلة) + دورات تمكين مهني + ترميم ثانوية تجارية مهنية.</p>
+        <div class="ids"><span class="id">13652</span><span class="id">12816</span><span class="id">11413</span><span class="id">15339</span><span class="id">17457</span><span class="id">19422</span><span class="id">20713</span><span class="id">11290</span><span class="id">16158</span><span class="id">15286</span></div>
+      </div>
+      <div class="why-line" data-tip="المصدر: Syria_Projects_2482.csv — ورش خياطة وحرف مستمرة منذ 2018 في أعزاز وباب السلامة والشمارين وتلالين، تستهدف الأرامل وأمهات الأيتام تحديدًا — دليل عملي على القدرة على بلوغ هدف 35% نساء">
+        <h4><span class="w">معيار 1 + هدف النساء</span>تشغيل النساء: 8+ ورش منذ 2018</h4>
+        <p>خياطة وحرف يدوية وكوافير نسائي للأرامل وأمهات الأيتام — نعرف كيف نُخرج المرأة من البيت إلى الدخل، وهو أصعب ما في هدف الـ35%.</p>
+        <div class="ids"><span class="id">23683</span><span class="id">20778</span><span class="id">19960</span><span class="id">14176</span><span class="id">10246</span><span class="id">15434</span><span class="id">14753</span><span class="id">24184</span><span class="id">12228</span></div>
+      </div>
+      <div class="why-line" data-tip="المصدر: Syria_Projects_2482.csv — برامج 'كالكنما/تنمية' سنوية: بقاليات، محال دواجن ولحوم، فلافل، مواشٍ، دعم حرفيين — تحويل أسر من متلقية مساعدات إلى معيلة لنفسها = جوهر self-employment في الـToR">
+        <h4><span class="w">معيار 1 · 20%</span>العمل الحر: وظّفنا مئات الأسر ذاتيًا</h4>
+        <p>دكاكين بقالة ودواجن وفلافل ومواشٍ ودعم حرفيين — خبرة فعلية في مسار الـself-employment الذي يشكل جزءًا من هدف الـ1,000.</p>
+        <div class="ids"><span class="id">24185</span><span class="id">24191</span><span class="id">23518</span><span class="id">21269</span><span class="id">19572</span><span class="id">17767</span><span class="id">16753</span><span class="id">12822</span><span class="id">22828</span><span class="id">19921</span></div>
+      </div>
+      <div class="why-line" data-tip="المصدر: Syria_Projects_2482.csv — مشروعا OCHA عبر الصندوق المشترك برمزي عقد قابلين للتحقق + مشاريع Cluster التعافي المبكر 2022–2024 — اجتزنا العناية الواجبة الأممية والتقارير الإنجليزية من قبل">
+        <h4><span class="w">معيار 6 · 10%</span>مموّلون أمميًا من قبل — برموز عقود</h4>
+        <p>OCHA/CBPF مرتين + Cluster التعافي المبكر 3 سنوات = امتثال أممي مثبت (عناية واجبة، تقارير إنجليزية، تدقيق).</p>
+        <div class="ids"><span class="id">20818 · CBPF-TUR-24-S-NGO-33172</span><span class="id">22746 · OCHA 36340</span><span class="id">19402</span><span class="id">18250</span><span class="id">17637</span><span class="id">15673</span></div>
+      </div>
+      <div class="why-line" data-tip="المصدر: Syria_Projects_2482.csv — 2,482 سجل مشروع منذ 2011: 20+ فرنًا، مدارس، مراكز صحية، مخيمات — أنظمة مالية ولوجستية وMEAL تدير عشرات المشاريع المتوازية. حجم هذا العقد ضمن إيقاعنا المعتاد">
+        <h4><span class="w">معيار 5 · قدرة</span>قدرة تشغيلية مثبتة بالحجم الكبير</h4>
+        <p>2,482 سجل مشروع منذ 2011 — نشغّل مرافق معقدة (أفران، مدارس، مراكز صحية) بأنظمة قائمة. 3,200 مستفيد ليست قفزة لنا.</p>
+        <div class="ids"><span class="id">عينة أفران: 13633</span><span class="id">مشاتل: 23365</span><span class="id">قمح: 22843</span><span class="id">مواشٍ: 24186</span><span class="id">24188</span></div>
+      </div>
+      <div class="why-line" data-tip="تحليلنا الصريح: لا يوجد في الملف مشروع خدمات توظيف رسمية (إرشاد مهني/مطابقة/PES) — تُسد الفجوة بقائد فريق متخصص بخبرة خدمات توظيف + الالتزام الحرفي بأدوات ILO الجاهزة + منسق مقيم في حماة وشريك محلي مسمى">
+        <h4><span class="gap-tag">⚠ الفجوة وكيف نسدها</span></h4>
+        <p>لم ننفذ خدمات توظيف بمفهوم PES من قبل، وحضور حماة أخف من حلب وإدلب. الرد في العرض: قائد فريق متخصص بخبرة إرشاد مهني + منهجية ILO المعلّبة (المطلوب منفّذ قوي لا مبتكِر) + منسق مقيم بحماة وشراكة محلية مسماة.</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h3 style="color:var(--pd);font-size:16px;margin-bottom:12px">حضورنا الجغرافي (عدد النشاطات والمشاريع في كل منطقة)</h3>
+      <div class="geo-row" data-tip="Syria_Projects_2482.csv — أعزاز، عفرين، جنديرس، جرابلس، الباب، مارع، أحترين، الشيخ مقصود..."><span>حلب وريفها</span><div class="geo-bar"><div class="geo-fill" style="width:100%"></div></div><b>1,007</b></div>
+      <div class="geo-row" data-tip="Syria_Projects_2482.csv — أغلبها كفالات أيتام منذ 2014 + دعم اجتماعي — حضور قائم يُعزَّز بمنسق مقيم"><span>حماة / حمص</span><div class="geo-bar"><div class="geo-fill" style="width:33%"></div></div><b>335</b></div>
+      <div class="geo-row" data-tip="Syria_Projects_2482.csv — سرمدا، سراقب، بنّش، إحسم، أريحا، مشهد روحين، بابسقا..."><span>إدلب</span><div class="geo-bar"><div class="geo-fill" style="width:19%"></div></div><b>191</b></div>
+    </div>
+  </section>
+
+  <!-- 11: work plan -->
+  <section>
+    <div class="sec-head"><div class="sec-num" style="background:var(--g)">7</div><div><h2>خطة العمل: 8 أيام حتى التسليم</h2><span>19 → 27 تموز</span></div></div>
+
+    <div class="day-plan">
+      <div class="dp-date"><b>19–20</b><span>تموز</span></div>
+      <div class="dp-body" data-tip="مبني على: TECH-İLO.docx (الأقسام الستة) — القرار الأهم: قائد الفريق، لأن CV-ه جزء من معيار الـ20%"><h4>التجهيز والحشد</h4><p>فريق كتابة + توزيع الأقسام · جمع وثائق التسجيل والتدقيق · حصر CVs (قائد فريق بخبرة توظيف، مسؤول خدمات، مسؤول أصحاب عمل، MEAL، 3 منسقين، مالية) · طلب خطابات مرجعية من شركاء OCHA/Cluster فورًا</p></div>
+    </div>
+    <div class="day-plan">
+      <div class="dp-date"><b>20–21</b><span>تموز</span></div>
+      <div class="dp-body" data-tip="مبني على: معيارَي 1 و2 (35%) + أرقام المشاريع في قسم 'لماذا نحن' أعلاه — تُنقل كما هي إلى جدولي القسمين 1 و2 في القالب"><h4>القسمان 1 و2: الملف والخبرة</h4><p>جدول الحضور الميداني بالمحافظات الثلاث · جدول الخبرات من البرامج المرقمة أعلاه (فاطمة خاتون، رفيدة، ورش النساء، كالكنما، OCHA) · معالجة حماة بمنسق مقيم وشريك مسمى</p></div>
+    </div>
+    <div class="day-plan">
+      <div class="dp-date"><b>21–23</b><span>تموز</span></div>
+      <div class="dp-body" data-tip="مبني على: معيار 3 (20%) + ToR جداول 2،3،5،6،8،9 — إظهار فهم أداة ILO الرقمية والتيسير المشترك وأهداف النساء/الإعاقة"><h4>القسم 3: المنهجية (الأثقل)</h4><p>نهج مرحلي كامل · خطة بلوغ 35% نساء و5% إعاقة (نقل، جلسات نسائية، إتاحة — بخبرة مراكزنا) · ضمان الجودة بأدوات ILO · الحماية وPSEA وآلية شكاوى الـ5 أيام · خطر فجوة التوقعات ورسائل التوعية الصريحة</p></div>
+    </div>
+    <div class="day-plan">
+      <div class="dp-date"><b>22–24</b><span>تموز</span></div>
+      <div class="dp-body" data-tip="مبني على: معيارَي 4 و5 (35%) + جدول 11 (19 مخرجًا) وجدول 13 (عتبات الدفعات) — الجدول يوزع الأهداف على المحافظات ويظهر بلوغ العتبات بمواعيدها"><h4>القسمان 4 و5: الجدول والكادر</h4><p>جدول 13 شهرًا موزعًا (مقترح: حلب 45% · إدلب 30% · حماة 25%) ومتوافقًا مع عتبات الدفعات · مصفوفة تنسيق MoSAL/DoSAL/TVET/غرف التجارة · هيكل الفريق ونسب الجهد</p></div>
+    </div>
+    <div class="day-plan">
+      <div class="dp-date"><b>24–25</b><span>تموز</span></div>
+      <div class="dp-body" data-tip="مبني على: ToR جدولي 16 و18 + تقدير القيمة أعلاه — تسعير واقعي ضمن نطاق 450–650 ألف$ مع إظهار كفاءة التكلفة"><h4>العرض المالي + المخاطر</h4><p>ميزانية بقالب ILO (مباشر/إداري) · تسعير البنود الخفية (ميسّرون ~22 ألف$، ضيافة، تصوير، معارض) · خطة سيولة لقاعدة الـ80% وسقف الـ30 ألف$ · مصفوفة مخاطر: الوصول، مشاركة النساء، ضعف الشواغر، فجوة التوقعات، حماة</p></div>
+    </div>
+    <div class="day-plan">
+      <div class="dp-date"><b>25–26</b><span>تموز</span></div>
+      <div class="dp-body" data-tip="مبني على: TECH-İLO.docx — حذف كل صناديق الإرشاد واستبدال كل [الأقواس] + مراجعة مقابل معايير جدول 14 الستة بعين المُقيِّم"><h4>المراجعة والتدقيق</h4><p>مراجعة داخلية بعين المُقيِّم مقابل المعايير الستة · تنظيف القالب من صناديق الإرشاد والأقواس · تدقيق إنجليزي · ضغط ضمن 10–15 صفحة · تجميع الملاحق والتواقيع</p></div>
+    </div>
+    <div class="day-plan dp-crit">
+      <div class="dp-date"><b>26–27</b><span>التسليم</span></div>
+      <div class="dp-body" data-tip="مبني على: TECH-İLO.docx تعليمات التسليم — مجلدان في ZIP واحد بالتسمية المحددة + العنوان الحرفي + قبل 23:59 دمشق. سلّم يوم 26 احتياطًا"><h4>التغليف والإرسال (لا ننتظر آخر ساعة)</h4><p>مجلدا فني/مالي → ZIP بالتسمية الإلزامية · العنوان الحرفي بالإنجليزية · إرسال مساء 26 احتياطًا + طلب تأكيد استلام</p></div>
+    </div>
+
+    <div class="note" data-tip="ToR جدول 2 — تقرير البدء خلال أسبوعين من التوقيع و8 مكاتب إحالة خلال الشهر الأول، والتنفيذ يبدأ 10 آب" style="cursor:help">📌 <b>بعد الفوز:</b> أول أسبوعين (10–24 آب) حاسمان — 8 اجتماعات + تقرير البدء + المسح، ثم 8 مكاتب إحالة قبل 10 أيلول. نجهّز مسوداتها من الآن.</div>
+  </section>
+
+  <footer>
+    بُني هذا الملف من: ToR (1).docx · TECH-İLO.docx · Syria_Projects_2482.csv (أرقام Proje ID قابلة للتحقق) · منشور LinkedIn — مرّر فوق أي عنصر لرؤية مصدره
+  </footer>
+</div>
+</body>
+</html>
