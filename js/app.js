@@ -53,6 +53,12 @@
       el.setAttribute("data-tip", t(lang, key));
     });
 
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n-aria");
+      if (!key) return;
+      el.setAttribute("aria-label", t(lang, key));
+    });
+
     document.querySelectorAll(".lang-btn").forEach(function (btn) {
       var btnLang = btn.getAttribute("data-lang");
       var active = btnLang === lang;
@@ -65,8 +71,80 @@
       switcher.setAttribute("aria-label", t(lang, "lang.aria"));
     }
 
+    var toggle = document.getElementById("nav-toggle");
+    if (toggle) {
+      toggle.setAttribute("aria-label", t(lang, "nav.menu"));
+    }
+
     persistLang(lang);
     document.dispatchEvent(new CustomEvent("ilo:langchange", { detail: { lang: lang } }));
+  }
+
+  function closeNav() {
+    var nav = document.getElementById("site-nav");
+    var toggle = document.getElementById("nav-toggle");
+    if (!nav) return;
+    nav.classList.remove("is-open");
+    if (toggle) toggle.setAttribute("aria-expanded", "false");
+  }
+
+  function initNav() {
+    var nav = document.getElementById("site-nav");
+    var toggle = document.getElementById("nav-toggle");
+    var links = Array.prototype.slice.call(document.querySelectorAll(".nav-link"));
+    var sections = links
+      .map(function (link) {
+        var id = (link.getAttribute("href") || "").replace(/^#/, "");
+        return id ? document.getElementById(id) : null;
+      })
+      .filter(Boolean);
+
+    if (toggle && nav) {
+      toggle.addEventListener("click", function () {
+        var open = !nav.classList.contains("is-open");
+        nav.classList.toggle("is-open", open);
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
+
+    links.forEach(function (link) {
+      link.addEventListener("click", function () {
+        closeNav();
+      });
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeNav();
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!nav || !nav.classList.contains("is-open")) return;
+      if (nav.contains(e.target)) return;
+      closeNav();
+    });
+
+    if (!("IntersectionObserver" in window) || !sections.length) return;
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        var visible = entries
+          .filter(function (entry) { return entry.isIntersecting; })
+          .sort(function (a, b) { return b.intersectionRatio - a.intersectionRatio; });
+
+        if (!visible.length) return;
+        var id = visible[0].target.id;
+        links.forEach(function (link) {
+          var active = link.getAttribute("href") === "#" + id;
+          link.classList.toggle("active", active);
+        });
+      },
+      {
+        rootMargin: "-30% 0px -55% 0px",
+        threshold: [0.1, 0.25, 0.5]
+      }
+    );
+
+    sections.forEach(function (section) { observer.observe(section); });
   }
 
   function init() {
@@ -80,6 +158,7 @@
     }
 
     applyLanguage(getStoredLang());
+    initNav();
   }
 
   if (document.readyState === "loading") {
