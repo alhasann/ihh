@@ -43,7 +43,7 @@ window.ILO_I18N = {
 
       "quote": "«ILO تملك المنهجية والأدوات؛ ونحن نملك الأرض والناس والثقة — هذا العقد يشتري قدرة وصول وتنفيذ راكمناها في هذه المحافظات منذ أكثر من عشر سنوات.»",
 
-      "s1.h2": "الفكرة في سطرين",
+      "s1.h2": "الفكرة",
       "s1.sub": "قبل أي تفصيل",
       "s1.p1": "ILO تبحث عن منظمة تنفّذ لها <b>خدمة توظيف متكاملة</b> في حلب وحماة وإدلب: تجد الباحثين عن عمل، تدرّبهم يومين، ثم توصلهم فعليًا بأصحاب عمل — مع نقل المعرفة لموظفي الدولة (مكاتب التشغيل) ليكملوا بعد انتهاء المشروع.",
       "s1.p2": "<b style=\"color:var(--p)\">هذا عقد نتائج لا عقد أنشطة:</b> المال يُصرف على 6 دفعات، وكل دفعة \"مقفلة\" برقم يجب إثباته بالوثائق. ولا مساعدات مادية للمستفيدين — القيمة المقدمة لهم هي الخدمة والوصلة بسوق العمل.",
@@ -316,7 +316,7 @@ window.ILO_I18N = {
 
       "quote": "«ILO metodolojiye ve araçlara sahiptir; biz ise sahaya, insanlara ve güvene sahibiz — bu sözleşme, on yılı aşkın süredir bu illerde biriktirdiğimiz erişim ve uygulama kapasitesini satın alır.»",
 
-      "s1.h2": "İki satırda fikir",
+      "s1.h2": "Fikir",
       "s1.sub": "Herhangi bir ayrıntıdan önce",
       "s1.p1": "ILO, Halep, Hama ve İdlib’de kendisi için <b>bütünleşik bir istihdam hizmeti</b> yürütecek bir kuruluş arıyor: iş arayanları bulur, iki gün eğitim verir, ardından onları gerçekten işverenlerle buluşturur — bilgiyi devlet personeline (istihdam büroları) aktararak proje bitince hizmetin sürmesini sağlar.",
       "s1.p2": "<b style=\"color:var(--p)\">Bu bir faaliyet sözleşmesi değil, sonuç sözleşmesidir:</b> ödeme 6 taksitte yapılır; her taksit belgelerle kanıtlanması gereken bir rakamla \"kilitlidir\". Yararlanıcılara ayni yardım yoktur — onlara sunulan değer hizmet ve iş piyasasına bağlantıdır.",
