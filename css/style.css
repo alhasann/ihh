@@ -25,14 +25,14 @@ section[id]{scroll-margin-top:88px}
 .site-nav-inner{
   max-width:1150px;margin:0 auto;padding:10px 16px;
   display:flex;align-items:center;justify-content:space-between;gap:12px;
-  min-height:60px;position:relative;
+  min-height:68px;position:relative;
 }
 .nav-brand{
   display:inline-flex;align-items:center;gap:10px;
   text-decoration:none;color:var(--pd);min-width:0;
 }
 .nav-logo{
-  width:36px;height:36px;object-fit:contain;flex-shrink:0;
+  width:56px;height:56px;object-fit:contain;flex-shrink:0;
 }
 .nav-brand-text{display:flex;flex-direction:column;line-height:1.15}
 .nav-brand-text b{font-size:15px;letter-spacing:.02em}
@@ -271,7 +271,7 @@ footer{text-align:center;color:var(--muted);font-size:12.5px;margin:36px 0 10px}
 @media(max-width:640px){
   .wrap{padding:14px}
   .site-nav-inner{padding:8px 12px;gap:8px;min-height:56px}
-  .nav-logo{width:32px;height:32px}
+  .nav-logo{width:48px;height:48px}
   .nav-brand-text b{font-size:14px}
   .nav-brand-text small{display:none}
   .lang-label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
