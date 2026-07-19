@@ -147,6 +147,18 @@
     sections.forEach(function (section) { observer.observe(section); });
   }
 
+  function initProjectLinks() {
+    var why = document.querySelector("#why .card.why");
+    if (!why) return;
+    why.addEventListener("click", function (e) {
+      var a = e.target.closest("a[href*='portal.ihh.org.tr/crea/project/project/detail/']");
+      if (!a || !why.contains(a)) return;
+      e.preventDefault();
+      e.stopPropagation();
+      window.open(a.href, "_blank", "noopener,noreferrer");
+    });
+  }
+
   function init() {
     var switcher = document.querySelector("[data-lang-switch]");
     if (switcher) {
@@ -159,6 +171,7 @@
 
     applyLanguage(getStoredLang());
     initNav();
+    initProjectLinks();
   }
 
   if (document.readyState === "loading") {
