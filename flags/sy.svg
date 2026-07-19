@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 24" width="36" height="24" role="img" aria-label="علم سوريا">
+  <!-- Flag of Syria (2025–): green / white / black with three red stars -->
+  <rect width="36" height="8" y="0" fill="#007A3D"/>
+  <rect width="36" height="8" y="8" fill="#FFFFFF"/>
+  <rect width="36" height="8" y="16" fill="#000000"/>
+  <g fill="#CE1126">
+    <path d="M9.2 15.05l1.55-4.76 1.55 4.76-4.05-2.94h5.01z"/>
+    <path d="M16.45 15.05l1.55-4.76 1.55 4.76-4.05-2.94h5.01z"/>
+    <path d="M23.7 15.05l1.55-4.76 1.55 4.76-4.05-2.94h5.01z"/>
+  </g>
+</svg>
